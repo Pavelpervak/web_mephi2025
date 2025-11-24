@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 function MoviesPage() {
   const [tagFilter, setTagFilter] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filtered, setFiltered] = useState(moviesData);
+  const [searchQuery, setSearchQuery] = useState("");        
+  const [filtered, setFiltered] = useState(moviesData);      
 
   const genreOptions = [
     { value: "фантастика", label: "Фантастика" },
@@ -47,7 +47,11 @@ function MoviesPage() {
         <Row gutter={[40, 40]}>
           {filtered.map((item) => (
             <Col span={8}>
-              <MovieCard title={item.title} year={item.year} />
+              <MovieCard 
+                title={item.title} 
+                year={item.year} 
+                img={item.img_src} // Добавляем передачу изображения
+              />
             </Col>
           ))}
         </Row>

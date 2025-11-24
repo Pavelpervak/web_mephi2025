@@ -1,34 +1,52 @@
+// src/components/Header/Header.jsx
 import { Layout, Menu, Typography, Avatar } from "antd";
-import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
-  const [menuItem, setMenuItem] = useState(["main"]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const getSelectedKeys = () => {
+    const path = location.pathname;
+    if (path === '/') return ['main'];
+    if (path === '/movies') return ['movies'];
+    if (path === '/profile') return ['profile'];
+    return ['main'];
+  };
+
   const menuItems = [
     {
       key: "main",
-      label: "Главная",
-      onClick: () => {
-        setMenuItem(["main"]);
-      },
+      label: <Link to="/">Главная</Link>,
     },
     {
       key: "movies",
-      label: "Фильмы",
-      onClick: () => {
-        setMenuItem(["movies"]);
-      },
+      label: <Link to="/movies">Фильмы</Link>,
+    },
+    {
+      key: "profile", 
+      label: <Link to="/profile">Профиль</Link>,
     },
   ];
+
+  const handleUserClick = () => {
+    navigate('/profile');
+  };
+
   return (
     <Layout.Header className="header-main">
       <Menu
         mode="horizontal"
-        selectedKeys={menuItem}
+        selectedKeys={getSelectedKeys()}
         items={menuItems}
         className="header-menu"
-      ></Menu>
-      <div className="user-container">
+      />
+      <div 
+        className="user-container" 
+        onClick={handleUserClick} 
+        style={{cursor: 'pointer'}}
+      >
         <Avatar size={"large"}>К</Avatar>
         <div className="user-name-container">
           <Typography.Text>Ксения Ц.</Typography.Text>

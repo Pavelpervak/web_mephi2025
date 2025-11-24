@@ -1,0 +1,105 @@
+/* UserPage.css */
+.user-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.user-info {
+  margin-bottom: 32px;
+}
+
+.profile-card,
+.movies-card {
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  margin-bottom: 24px;
+  color: #262626;
+  border-bottom: 2px solid #1890ff;
+  padding-bottom: 8px;
+}
+
+.info-row {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.movie-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.movie-group {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.movie-group:last-child {
+  border-bottom: none;
+}
+
+.group-title {
+  margin-bottom: 16px;
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.movies-grid {
+  margin: 0;
+}
+
+.movie-item {
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  background: #fafafa;
+  transition: all 0.2s ease;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-item:hover {
+  border-color: #1890ff;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+}
+
+.movie-title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.movie-year {
+  font-size: 13px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .user-page {
+    padding: 16px;
+  }
+  
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .info-row .ant-col {
+    width: 100%;
+  }
+}
